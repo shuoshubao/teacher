@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.min.css">
+    <script src="./lodash.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="imgs">
+            <img src="./tinified/1.png" class="img1" />
+            <img src="./tinified/2.png" class="img2" />
+            <img src="./tinified/3.png" class="img3" />
+            <img src="./tinified/4.png" class="img4" />
+            <img src="./tinified/5.png" class="img5" />
+            <img src="./tinified/flower1.png" class="flower1" />
+            <img src="./tinified/flower1.png" class="flower1-1" />
+            <img src="./tinified/flower1.png" class="flower1-2" />
+            <img src="./tinified/flower2.png" class="flower2" />
+        </div>
+        <div class="name">
+            <div class="animate__animated animate__bounce">一年级(1)班</div>
+            <div class="animate__animated animate__bounce">付依依</div>
+        </div>
+        <div class="icons">
+            <div>🌹</div>
+            <div>🌸</div>
+        </div>
+    </div>
+    <style>
+        body {
+            margin: 0;
+            background-color: #e6e6e6;
+        }
+        .container {
+            padding-top: 100px;
+        }
+        .name {
+            font-size: 20px;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .img2 {
+            margin-left: -50px;
+        }
+        .img3 {
+            margin-left: -15px;
+        }
+        .img4 {
+            margin-left: -35px;
+        }
+        .imgs {
+            position: relative;
+            width: 725px;
+            display: inline-block;
+            transform-origin: left top;
+            z-index: 100;
+        }
+        .img1 {
+            animation: heartBeat;
+            animation-duration: 3s;
+            /*animation-iteration-count: 5;*/
+        }
+        .img2 {
+            animation: heartBeat;
+            animation-duration: 3.5s;
+            /*animation-iteration-count: 5;*/
+        }
+        .img3 {
+            animation: heartBeat;
+            animation-duration: 4s;
+            /*animation-iteration-count: 5;*/
+        }
+        .img4 {
+            animation: heartBeat;
+            animation-duration: 3.5s;
+            /*animation-iteration-count: 5;*/
+        }
+        .img5 {
+            animation: heartBeat;
+            animation-duration: 4s;
+            /*animation-iteration-count: 5;*/
+        }
+        .flower1,.flower1-1,.flower1-2 {
+            position: absolute;
+            bottom: -20px;
+            left: 200px;
+        }
+        .flower1-1 {
+            left: 220px;
+        }
+        .flower1-2 {
+            left: 250px;
+        }
+        .flower1-2 {
+            left: 280px;
+            bottom: -10px;
+        }
+        .flower2 {
+            position: absolute;
+            bottom: -40px;
+            right: 250px;
+        }
+        .icons {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .icon {
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.querySelector('.imgs').style.transform = `scale(${screen.width/725})`;
+        var text = ['111111111111111111111111111111111111111111111111111111111111111111111111111111111111', '111111111111111111111111111111111111111111111111111111111111111111111111111111111111', '111111111111111111111111111111111111111111111111111111111111111111111111111111111111'].join('').split('').map((v, i) => {
+            // ['🌹', '🌸']
+            const left = i % 10;
+            const top = i - left;
+            return `<span class="icon icon-${i}" style="left: ${left * 40 * _.random(0.95, 1.05)}px;top: ${top * 10 * _.random(0.75, 1.25)}px; opacity: ${_.random(0.6, 0.7)}">${i % 2 ? '🌹' : '🌸'}</span>`;
+        }).join('');
+        document.querySelector('.icons').innerHTML = text;
+
+    </script>
+</body>
+</html>
